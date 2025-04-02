@@ -1,4 +1,4 @@
-GEMINI_API_KEY = "AIzaSyD-hrqEK3vbH5-jFLwegFoulDVe3eUU9A8" # Replace with your actual API key
+GEMINI_API_KEY = "api-key" # Replace with your actual API key
 
 import streamlit as st
 import google.generativeai as genai

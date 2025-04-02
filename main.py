@@ -1,4 +1,4 @@
-GEMINI_API_KEY = "AIzaSyD-hrqEK3vbH5-jFLwegFoulDVe3eUU9A8" # Replace with your actual API key
+GEMINI_API_KEY = "api-key" # Replace with your actual API key
 
 # -*- coding: utf-8 -*-
 """main.ipynb
@@ -69,15 +69,11 @@ def specialist_info(specialist_name: str) -> str:
 import google.generativeai as genai
 import os
 
+# Verify API key
+print(GEMINI_API_KEY)
+
 # Set up the API key
 genai.configure(api_key=GEMINI_API_KEY)  # Replace with your actual API key
-
-# Verify API key
-print(os.getenv("GEMINI_API_KEY"))
-
-os.environ["GEMINI_API_KEY"] = "AIzaSyDFc7FK3pLCLoE01kC42BACaDwco8-DEO8"  # Replace with your actual API key
-
-print(os.getenv("GEMINI_API_KEY"))
 
 # Load the model
 model = genai.GenerativeModel("gemini-1.5-pro")
@@ -320,54 +316,6 @@ import os
 # Run curl command to access LocalTunnel
 subprocess.run(["curl", "https://loca.lt/mytunnelpassword"], check=True)
 print()
-
-
-
-# Commented out IPython magic to ensure Python compatibility.
-# %%writefile chatbot.py
-# import streamlit as st
-# import google.generativeai as genai
-
-# # Ensure Gemini API is configured
-# genai.configure(api_key="AIzaSyDFc7FK3pLCLoE01kC42BACaDwco8-DEO8")  # Replace with your actual API key
-
-# # Load Gemini model
-# model = genai.GenerativeModel("gemini-1.5-pro")
-
-# # Streamlit UI
-# st.title("🩺 Healthcare Triage Chatbot")
-# st.write("Describe your symptoms, and I'll suggest the right specialist.")
-
-# # Chat history
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-
-# # Display previous messages
-# for message in st.session_state.messages:
-#     with st.chat_message(message["role"]):
-#         st.markdown(message["content"])
-
-# # Input field
-# user_input = st.chat_input("Describe your symptoms...")
-
-# if user_input:
-#     # Store user message
-#     st.session_state.messages.append({"role": "user", "content": user_input})
-
-#     with st.chat_message("user"):
-#         st.markdown(user_input)
-
-#     # Generate AI response
-#     with st.spinner("Analyzing symptoms..."):
-#         response = model.generate_content(f"Which medical specialist should I visit for these symptoms: {user_input}?")
-#         bot_reply = response.text.strip()
-
-#     with st.chat_message("assistant"):
-#         st.markdown(bot_reply)
-
-#     # Store AI response
-#     st.session_state.messages.append({"role": "assistant", "content": bot_reply})
-
 
 # """#Section 7: Deploying with LocalTunnel"""
 

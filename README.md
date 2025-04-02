@@ -9,6 +9,7 @@ This project provides an API to analyze symptoms and recommend a suitable medica
 
 ### Prerequisites
 - Python 3.8+
+- pip
 - A valid API key for Google Generative AI
 
 ### Installation
@@ -34,6 +35,19 @@ This project provides an API to analyze symptoms and recommend a suitable medica
     ```python
     GEMINI_API_KEY = "api-key"
     ```
+
+### Description of the Custom Tool Implementation
+The custom tool is implemented as a FastAPI that interacts with the Google Gemini LLM to provide healthcare triage recommendations. The API accepts a symptom description as input, processes it using the agent, and returns the most suitable medical specialist. Key features include:
+- **Agent Design**: The agent is responsible for interpreting user input and mapping symptoms to predefined medical specialties.
+- **Prompt Design**: The prompt is carefully structured to guide the LLM in making accurate and context-aware recommendations.
+- **Logging**: Comprehensive logging is implemented to track API requests, responses, and the agent's decision-making process for debugging and auditing purposes.
+
+### Bonus Tasks
+1. **Enhanced Logging**: Added detailed logs to capture the full interaction flow, including input symptoms, LLM responses, and final recommendations.
+2. **Error Handling**: Implemented robust error handling to manage invalid inputs, API key issues, and LLM service downtime gracefully.
+3. **Scalability**: Designed the API to be lightweight and scalable, ensuring it can handle multiple concurrent requests efficiently.
+4. **Documentation**: Provided clear and concise documentation for setup, usage, and testing to improve developer experience.
+
 
 ### Testing the API
 You can test using `curl`:

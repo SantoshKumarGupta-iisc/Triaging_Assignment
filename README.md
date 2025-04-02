@@ -60,6 +60,3 @@ Or use Postman / any API testing tool.
 ### Notes
 - Ensure your API key is set correctly to avoid authentication issues.
 - Logs are stored in `agent.log` for debugging purposes.
-
-## License
-MIT

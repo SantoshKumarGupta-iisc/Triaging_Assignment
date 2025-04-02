@@ -1,3 +1,5 @@
+GEMINI_API_KEY = "AIzaSyD-hrqEK3vbH5-jFLwegFoulDVe3eUU9A8" # Replace with your actual API key
+
 # -*- coding: utf-8 -*-
 """main.ipynb
 
@@ -20,6 +22,12 @@ from threading import Thread
 
 # Create FastAPI app
 app = FastAPI()
+
+
+# Replace with your actual API key
+if not GEMINI_API_KEY:
+    raise ValueError("API key is missing. Please set the GEMINI_API_KEY in chatbot.py.")
+# Ensure Gemini API is configured
 
 # Define input format with validation
 class SymptomRequest(BaseModel):
@@ -62,7 +70,7 @@ import google.generativeai as genai
 import os
 
 # Set up the API key
-genai.configure(api_key="AIzaSyDFc7FK3pLCLoE01kC42BACaDwco8-DEO8")  # Replace with your actual API key
+genai.configure(api_key=GEMINI_API_KEY)  # Replace with your actual API key
 
 # Verify API key
 print(os.getenv("GEMINI_API_KEY"))

@@ -1,8 +1,17 @@
+GEMINI_API_KEY = "AIzaSyD-hrqEK3vbH5-jFLwegFoulDVe3eUU9A8" # Replace with your actual API key
+
 import streamlit as st
 import google.generativeai as genai
 
+
+
+
+if not GEMINI_API_KEY:
+    st.error("API key is missing. Please set the GEMINI_API_KEY in chatbot,py.")
+    st.stop()
+
 # Ensure Gemini API is configured
-genai.configure(api_key="AIzaSyDFc7FK3pLCLoE01kC42BACaDwco8-DEO8")  # Replace with your actual API key
+genai.configure(api_key=GEMINI_API_KEY)  
 
 # Load Gemini model
 model = genai.GenerativeModel("gemini-1.5-pro")

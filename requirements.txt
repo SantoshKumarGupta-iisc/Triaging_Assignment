@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+logging
+python-dotenv
+google-generativeai
+pytest
+langchain
+pandas
+streamlit

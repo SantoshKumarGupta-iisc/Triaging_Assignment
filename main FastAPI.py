@@ -313,61 +313,63 @@ import os
 subprocess.run(["curl", "https://loca.lt/mytunnelpassword"], check=True)
 print()
 
-# Run Streamlit app and LocalTunnel
-subprocess.Popen(["streamlit", "run", "chatbot.py"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-# run 
-# npx localtunnel --port 8501
-
-print("Streamlit app is running, and LocalTunnel is exposing port 8501.")
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile chatbot.py
 # import streamlit as st
 # import google.generativeai as genai
-# 
+
 # # Ensure Gemini API is configured
 # genai.configure(api_key="AIzaSyDFc7FK3pLCLoE01kC42BACaDwco8-DEO8")  # Replace with your actual API key
-# 
+
 # # Load Gemini model
 # model = genai.GenerativeModel("gemini-1.5-pro")
-# 
+
 # # Streamlit UI
 # st.title("🩺 Healthcare Triage Chatbot")
 # st.write("Describe your symptoms, and I'll suggest the right specialist.")
-# 
+
 # # Chat history
 # if "messages" not in st.session_state:
 #     st.session_state.messages = []
-# 
+
 # # Display previous messages
 # for message in st.session_state.messages:
 #     with st.chat_message(message["role"]):
 #         st.markdown(message["content"])
-# 
+
 # # Input field
 # user_input = st.chat_input("Describe your symptoms...")
-# 
+
 # if user_input:
 #     # Store user message
 #     st.session_state.messages.append({"role": "user", "content": user_input})
-# 
+
 #     with st.chat_message("user"):
 #         st.markdown(user_input)
-# 
+
 #     # Generate AI response
 #     with st.spinner("Analyzing symptoms..."):
 #         response = model.generate_content(f"Which medical specialist should I visit for these symptoms: {user_input}?")
 #         bot_reply = response.text.strip()
-# 
+
 #     with st.chat_message("assistant"):
 #         st.markdown(bot_reply)
-# 
+
 #     # Store AI response
 #     st.session_state.messages.append({"role": "assistant", "content": bot_reply})
-#
+
 
 # """#Section 7: Deploying with LocalTunnel"""
+
+# Run Streamlit app and LocalTunnel
+subprocess.Popen(["streamlit", "run", "chatbot.py"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+print("Streamlit app is running, and LocalTunnel is exposing port 8501.")
+
+# run 
+# npx localtunnel --port 8501
 
 # !curl https://loca.lt/mytunnelpassword
 
